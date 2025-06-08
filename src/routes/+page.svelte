@@ -1,6 +1,7 @@
 <script>
     import Navbar from "$lib/components/Navbar.svelte";
-
+    import Footer from "$lib/components/Footer.svelte";
+    import PresentationSection from "$lib/components/PresentationSection.svelte";
 </script>
 
 <head>
@@ -10,5 +11,7 @@
 
 <div class="bg-black min-h-screen font-manrope">
     <Navbar />
+    <PresentationSection />
+    <Footer />
 </div>
 
