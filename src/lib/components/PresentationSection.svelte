@@ -1,33 +1,41 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+    import { onMount, tick, onDestroy } from 'svelte';
 
     let displayed = '';
     let text = 'Start being productive.'
     let delay = 75;
+    let typeFinished = false;
+    let showCaret = true;
+    let caretInterval: ReturnType<typeof setInterval>;
+
     onMount(() => {
         function typeText(){
-            let i = 0;
-            for (let char of text) {
-                setTimeout(() => {
-                    displayed += char;
+            for (let i = 0; i < text.length; i++) {
+                setTimeout(async () => {
+                    displayed += text[i];
+                    if(i === text.length - 1) {
+                        typeFinished = true;
+                        clearInterval(caretInterval);
+                        showCaret = false;
+                        await tick();
+                    }
                 }, i * delay);
-                i++;
             }
         }
         typeText();
+
+        caretInterval = setInterval(() => {
+            if (!typeFinished) showCaret = !showCaret;
+        }, 500);
     });
 
+    onDestroy(() => {
+        clearInterval(caretInterval);
+    });
 </script>
 
 <div class="presentation bg-black min-h-screen font-manrope flex items-center justify-center">
-	<h1 class="text-3xl md:text-5xl font-bold text-white whitespace-pre-line">
-		{displayed}
-	</h1>
+    <h1 class="text-3xl md:text-5xl font-bold text-white whitespace-pre-line">
+        {displayed}<span class="carret text-white">{!typeFinished && showCaret ? '|' : ''}</span>
+    </h1>
 </div>
-
-<style>
-    .presentation {
-        font-family: 'Manrope', sans-serif;
-        font-weight: 200;
-    }
-</style>
