@@ -17,12 +17,12 @@
 	];
 </script>
 
-<nav class="bg-gradient-to-r from-black to-gray-800 text-white shadow-lg">
+<nav class="relative bg-gradient-to-r from-black to-gray-800 text-white shadow-lg">
 	<div class="container mx-auto flex items-center justify-between px-6 py-4">
 		<div class="flex items-center gap-4">
 			<a href="/" class="text-4xl font-bold tracking-tight">Notes</a>
 		</div>
-		<div class="hidden items-center gap-7 md:flex">
+		<div class="hidden md:flex gap-7 mx-auto">
 			{#each mainLinks as link, index}
 				<a
 					href={link.href}
@@ -39,7 +39,7 @@
 				</a>
 			{/each}
 		</div>
-		<div class="hidden items-center gap-7 md:flex">
+		<div class="hidden md:flex items-center gap-7">
 			{#each secondaryLinks as link, index}
 				<a
 					href={link.href}
@@ -86,8 +86,7 @@
 				</a>
 			{/each}
 			<a href="/login" class="block rounded px-4 py-2 duration-500 hover:bg-gray-500">Login</a>
-			<a href="/register" class="block rounded px-4 py-2 duration-500 hover:bg-gray-500">Register</a
-			>
+			<a href="/register" class="block rounded px-4 py-2 duration-500 hover:bg-gray-500">Register</a>
 		</div>
 	{/if}
 </nav>

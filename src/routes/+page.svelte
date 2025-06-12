@@ -2,6 +2,7 @@
     import Navbar from "$lib/components/Navbar.svelte";
     import Footer from "$lib/components/Footer.svelte";
     import PresentationSection from "$lib/components/PresentationSection.svelte";
+	import HowItWorks from "$lib/components/HowItWorks.svelte";
 </script>
 
 <head>
@@ -9,9 +10,10 @@
 </head>
 
 
-<div class="bg-black min-h-screen font-manrope">
+<div class="min-h-screen font-manrope bg-gradient-to-t from-indigo-950 to-black">
     <Navbar />
     <PresentationSection />
+    <HowItWorks />
     <Footer />
 </div>
 
