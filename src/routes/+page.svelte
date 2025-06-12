@@ -3,6 +3,7 @@
     import Footer from "$lib/components/Footer.svelte";
     import PresentationSection from "$lib/components/PresentationSection.svelte";
 	import HowItWorks from "$lib/components/HowItWorks.svelte";
+    let animationFinished = false;
 </script>
 
 <head>
@@ -12,8 +13,7 @@
 
 <div class="min-h-screen font-manrope bg-gradient-to-t from-indigo-950 to-black">
     <Navbar />
-    <PresentationSection />
-    <HowItWorks />
+    <PresentationSection bind:animationFinished />
+    <HowItWorks {animationFinished}/>
     <Footer />
 </div>
-
