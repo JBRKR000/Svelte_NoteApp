@@ -2,7 +2,14 @@
 
 A modern, fast, and secure web app for creating, organizing, and managing notes — inspired by the best, built for productivity.
 
+
+![2025-06-18_17-41-45 (1)](https://github.com/user-attachments/assets/798dde8f-1ced-4c55-b1f5-1f4787013ca2)
+
+
+
 ---
+
+
 
 ## 🚀 Key Features
 
