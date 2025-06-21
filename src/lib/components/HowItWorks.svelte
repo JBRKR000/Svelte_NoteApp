@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { fade, fly } from 'svelte/transition';
+	import { onMount } from 'svelte';
+
 	let sectionRef: HTMLElement;
 	export let animationFinished = false;
 	let isVisible = false;
@@ -10,7 +12,6 @@
 		}
 	}
 
-	import { onMount } from 'svelte';
 	onMount(() => {
 		const observer = new IntersectionObserver(handleIntersection, { threshold: 0.2 });
 		if (sectionRef) observer.observe(sectionRef);
@@ -26,70 +27,75 @@
 	<h2 class="mb-10 text-center text-4xl font-bold md:text-5xl">How It Works</h2>
 
 	{#if animationFinished || isVisible}
-		<div class="grid w-full max-w-5xl grid-cols-1 gap-8 md:grid-cols-3">
-			<!-- Left box with fly from left -->
+		<div class="grid w-full max-w-6xl grid-cols-1 gap-8 md:grid-cols-3">
+			<!-- BOX 1 -->
 			<div
-				class="flex flex-col items-center rounded-xl bg-black/30 p-6 shadow-lg"
-				in:fly={{ x: -100, duration: 600, delay:500 }}
+				class="relative group rounded-xl p-[2px] bg-gradient-to-r from-indigo-500 via-pink-500 to-cyan-400 bg-[length:300%_300%] animate-gradient"
+				in:fly={{ x: -100, duration: 600, delay: 500 }}
 			>
-				<svg
-					class="mb-4 h-12 w-12 text-cyan-400 transition-transform duration-500 hover:scale-125 hover:-rotate-12 hover:text-pink-400"
-					fill="none"
-					stroke="currentColor"
-					stroke-width="2"
-					viewBox="0 0 24 24"
-				>
-					<path
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						d="M16.862 3.487a2.25 2.25 0 1 1 3.182 3.182L7.5 19.213l-4 1 1-4 14.362-14.726z"
-					/>
-				</svg>
-				<h3 class="mb-2 text-xl font-semibold">Create Notes</h3>
-				<p class="text-center text-gray-300">
-					Quickly add your thoughts, tasks, or ideas in a simple and intuitive editor.
-				</p>
+				<div class="relative z-10 h-full w-full rounded-xl bg-[#0f0f0f] p-6 text-center">
+					<svg
+						class="mb-4 h-12 w-12 text-cyan-400 transition-transform duration-500 group-hover:scale-125 group-hover:-rotate-12 group-hover:text-pink-400"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						viewBox="0 0 24 24"
+					>
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							d="M16.862 3.487a2.25 2.25 0 1 1 3.182 3.182L7.5 19.213l-4 1 1-4 14.362-14.726z"
+						/>
+					</svg>
+					<h3 class="mb-2 text-xl font-semibold">Create Notes</h3>
+					<p class="text-gray-300">
+						Quickly add your thoughts, tasks, or ideas in a simple and intuitive editor.
+					</p>
+				</div>
 			</div>
 
-			<!-- Middle box with fade only -->
+			<!-- BOX 2 -->
 			<div
-				class="flex flex-col items-center rounded-xl bg-black/30 p-6 shadow-lg"
-				in:fade={{ duration: 600, delay:500 }}
+				class="relative group rounded-xl p-[2px] bg-gradient-to-r from-indigo-500 via-pink-500 to-cyan-400 bg-[length:300%_300%] animate-gradient"
+				in:fade={{ duration: 600, delay: 500 }}
 			>
-				<svg
-					class="mb-4 h-12 w-12 text-emerald-400 transition-transform duration-500 hover:animate-pulse"
-					fill="none"
-					stroke="currentColor"
-					stroke-width="2"
-					viewBox="0 0 24 24"
-				>
-					<path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h7" />
-				</svg>
-
-				<h3 class="mb-2 text-xl font-semibold">Organize</h3>
-				<p class="text-center text-gray-300">
-					Keep your notes organized and accessible from anywhere, anytime.
-				</p>
+				<div class="relative z-10 h-full w-full rounded-xl bg-[#0f0f0f] p-6 text-center">
+					<svg
+						class="mb-4 h-12 w-12 text-emerald-400 transition-transform duration-500 group-hover:animate-pulse"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						viewBox="0 0 24 24"
+					>
+						<path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h7" />
+					</svg>
+					<h3 class="mb-2 text-xl font-semibold">Organize</h3>
+					<p class="text-gray-300">
+						Keep your notes organized and accessible from anywhere, anytime.
+					</p>
+				</div>
 			</div>
 
-			<!-- Right box with fly from right -->
+			<!-- BOX 3 -->
 			<div
-				class="flex flex-col items-center rounded-xl bg-black/30 p-6 shadow-lg"
-				in:fly={{ x: 100, duration: 600, delay:500 }}
+				class="relative group rounded-xl p-[2px] bg-gradient-to-r from-indigo-500 via-pink-500 to-cyan-400 bg-[length:300%_300%] animate-gradient"
+				in:fly={{ x: 100, duration: 600, delay: 500 }}
 			>
-				<svg
-					class="mb-4 h-12 w-12 text-pink-400 transition-transform duration-500 hover:animate-bounce"
-					fill="none"
-					stroke="currentColor"
-					stroke-width="2"
-					viewBox="0 0 24 24"
-				>
-					<path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-				</svg>
-				<h3 class="mb-2 text-xl font-semibold">Be Productive</h3>
-				<p class="text-center text-gray-300">
-					Focus on what matters and boost your productivity every day.
-				</p>
+				<div class="relative z-10 h-full w-full rounded-xl bg-[#0f0f0f] p-6 text-center">
+					<svg
+						class="mb-4 h-12 w-12 text-pink-400 transition-transform duration-500 group-hover:animate-bounce"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						viewBox="0 0 24 24"
+					>
+						<path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+					</svg>
+					<h3 class="mb-2 text-xl font-semibold">Be Productive</h3>
+					<p class="text-gray-300">
+						Focus on what matters and boost your productivity every day.
+					</p>
+				</div>
 			</div>
 		</div>
 	{/if}
